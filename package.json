@@ -1,0 +1,20 @@
+{
+  "name": "tic-tac-toe",
+  "version": "1.0.0",
+  "description": "2 Player real time Tic Tac Toe game over the internet",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karanshah0206/Tic-Tac-Toe.git"
+  },
+  "author": "Karan Manoj Shah",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/karanshah0206/Tic-Tac-Toe/issues"
+  },
+  "homepage": "https://github.com/karanshah0206/Tic-Tac-Toe#readme"
+}
