@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/karanshah0206/Tic-Tac-Toe/issues"
   },
-  "homepage": "https://github.com/karanshah0206/Tic-Tac-Toe#readme"
+  "homepage": "https://github.com/karanshah0206/Tic-Tac-Toe#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
