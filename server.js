@@ -31,6 +31,7 @@ io.on("connection", (socket) => {
         gameboard[loc] = type;
         socket.emit("gameboard", [gameboard, false]);
         socket.broadcast.emit("gameboard", [gameboard, true]);
+        if (checkWinner()) { socket.emit("winner"); socket.broadcast.emit("loser"); }
     });
 
     // Disconnected
@@ -39,3 +40,7 @@ io.on("connection", (socket) => {
         if (peerCount == 1) { socket.broadcast.emit("opponentLeft"); }
     });
 });
+
+function checkWinner() {
+    return false;
+}

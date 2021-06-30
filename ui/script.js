@@ -43,6 +43,18 @@ socket.on("gameboard", ([serverGameboard, isMyTurn]) => {
     myTurn = isMyTurn;
 });
 
+// Winner
+socket.on("winner", () => {
+    document.getElementById("winner").classList.remove("hidden");
+    document.getElementById("gameboard").classList.add("hidden");
+});
+
+// Loser
+socket.on("loser", () => {
+    document.getElementById("loser").classList.remove("hidden");
+    document.getElementById("gameboard").classList.add("hidden");
+});
+
 // Event Listeners For Gameboard
 for (let i = 0; i < 9; i++) { document.getElementById((i+1).toString()).addEventListener("click", () => { makeMove(i); }); }
 
