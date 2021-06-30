@@ -27,7 +27,7 @@ io.on("connection", (socket) => {
     else if (peerCount == 1) { socket.emit("firstJoined"); }
 
     // Player Makes A Move
-    socket.on("move", (loc, type) => {
+    socket.on("move", ([loc, type]) => {
         gameboard[loc] = type;
         socket.emit("gameboard", [gameboard, false]);
         socket.broadcast.emit("gameboard", [gameboard, true]);
