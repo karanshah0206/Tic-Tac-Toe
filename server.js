@@ -14,10 +14,13 @@ var peerCount = 0;
 io.on("connection", (socket) => {
     peerCount++;
 
-    if (peerCount > 2) {
-        socket.emit("full");
-    }
+    // Room Full
+    if (peerCount > 2) { socket.emit("full"); }
 
     // Disconnected
-    socket.on("disconnect", () => { peerCount--; });
+    socket.on("disconnect", () => {
+        peerCount--;
+        if (peerCount == 1) { socket.broadcast.emit("opponentLeft"); }
+        if (peerCount == 0) { /* TODO: Clear Game Board */ }
+    });
 });
