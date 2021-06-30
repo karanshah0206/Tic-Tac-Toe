@@ -1,0 +1,6 @@
+* { margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+h1 { text-align: center; margin: 1rem 0; }
+
+/* Game board */
+table { margin: 0 auto; }
+td { width: 90px; height: 90px; background-color: rgb(228, 237, 240); }
