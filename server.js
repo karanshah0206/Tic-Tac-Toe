@@ -11,20 +11,31 @@ server.listen(port, () => { });
 
 // Connection Management
 var peerCount = 0;
+var gameboard = [0,0,0,0,0,0,0,0,0];
 io.on("connection", (socket) => {
     peerCount++;
 
     // Room Full
     if (peerCount > 2) { socket.emit("full"); }
     // Opponent Joined
-    else if (peerCount == 2) { socket.emit("secondJoined"); socket.broadcast.emit("opponentJoined"); }
+    else if (peerCount == 2) {
+        socket.emit("secondJoined"); socket.broadcast.emit("opponentJoined");
+        socket.emit("gameboard", [gameboard, false]);
+        socket.broadcast.emit("gameboard", [gameboard, true]);
+    }
     // First Player Joined
     else if (peerCount == 1) { socket.emit("firstJoined"); }
 
+    // Player Makes A Move
+    socket.on("move", (loc, type) => {
+        gameboard[loc-1] = type;
+        socket.emit("gameboard", [gameboard, false]);
+        socket.broadcast.emit("gameboard", [gameboard, true]);
+    });
+
     // Disconnected
     socket.on("disconnect", () => {
-        peerCount--;
+        peerCount--; gameboard = [0,0,0,0,0,0,0,0,0];
         if (peerCount == 1) { socket.broadcast.emit("opponentLeft"); }
-        if (peerCount == 0) { /* TODO: Clear Game Board */ }
     });
 });

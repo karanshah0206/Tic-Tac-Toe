@@ -21,27 +21,31 @@
         <p>Sorry, the room is full! Try refreshing periodically.</p>
     </div>
     <div id="opponentDisconnected" class="alertBox hidden">
-        <p>Your opponent disconnected!</p>
+        <p>Your opponent disconnected! The game was destroyed.</p>
     </div>
     <div id="waitingForOpponent" class="alertBox hidden">
         <p>Waiting for an opponent to join.</p>
     </div>
-    <table id="gameboard" class="hidden">
-        <tr>
-            <td id="1"></td>
-            <td id="2"></td>
-            <td id="3"></td>
-        </tr>
-        <tr>
-            <td id="4"></td>
-            <td id="5"></td>
-            <td id="6"></td>
-        </tr>
-        <tr>
-            <td id="7"></td>
-            <td id="8"></td>
-            <td id="9"></td>
-        </tr>
-    </table>
+    <div id="gameboard" class="hidden">
+        <p id="typeIndicator"></p>
+        <p id="turnIndicator"></p>
+        <table>
+            <tr>
+                <td id="1"></td>
+                <td id="2"></td>
+                <td id="3"></td>
+            </tr>
+            <tr>
+                <td id="4"></td>
+                <td id="5"></td>
+                <td id="6"></td>
+            </tr>
+            <tr>
+                <td id="7"></td>
+                <td id="8"></td>
+                <td id="9"></td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>

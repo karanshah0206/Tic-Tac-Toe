@@ -4,6 +4,7 @@ h1 { text-align: center; margin: 1rem 0; }
 /* Game board */
 table { margin: 0 auto; }
 td { width: 90px; height: 90px; background-color: rgb(228, 237, 240); }
+p { text-align: center; }
 
 /* Alert Box */
 .alertBox { border: 3px solid black; width: 50vw; margin: 1rem auto; padding: 0.5rem; }
