@@ -11,5 +11,8 @@ server.listen(port, () => { });
 
 // Connection Management
 io.on("connection", (socket) => {
-    console.log("User connected on socket " + socket);
+    // Connected
+    socket.on("disconnect", () => {
+        // Disconnected
+    });
 });
