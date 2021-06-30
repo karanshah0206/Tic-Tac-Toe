@@ -1,0 +1,24 @@
+{
+  "name": "tic-tac-toe",
+  "version": "1.0.0",
+  "description": "Real-Time 2 Player Tic-Tac-Toe",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karanshah0206/Tic-Tac-Toe.git"
+  },
+  "author": "Karan Manoj Shah",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/karanshah0206/Tic-Tac-Toe/issues"
+  },
+  "homepage": "https://github.com/karanshah0206/Tic-Tac-Toe#readme"
+}
