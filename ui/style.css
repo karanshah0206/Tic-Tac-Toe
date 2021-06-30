@@ -4,3 +4,13 @@ h1 { text-align: center; margin: 1rem 0; }
 /* Game board */
 table { margin: 0 auto; }
 td { width: 90px; height: 90px; background-color: rgb(228, 237, 240); }
+
+/* Alert Box */
+.alertBox { border: 3px solid black; width: 50vw; margin: 1rem auto; padding: 0.5rem; }
+.alertBox p { text-align: center; color: #ffffff; }
+#opponentDisconnected { background-color: #ff0000; }
+#roomFull { background-color: #ff0000; }
+#waitingForOpponent { background-color: #ff8800; }
+
+/* Hidden */
+.hidden { display: none; }

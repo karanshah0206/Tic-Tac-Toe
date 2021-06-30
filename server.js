@@ -17,7 +17,7 @@ io.on("connection", (socket) => {
     // Room Full
     if (peerCount > 2) { socket.emit("full"); }
     // Opponent Joined
-    else if (peerCount == 2) { socket.broadcast.emit("opponentJoined"); }
+    else if (peerCount == 2) { socket.emit("secondJoined"); socket.broadcast.emit("opponentJoined"); }
     // First Player Joined
     else if (peerCount == 1) { socket.emit("firstJoined"); }
 

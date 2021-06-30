@@ -17,7 +17,16 @@
 </head>
 <body>
     <h1>2 Player Realtime Tic-Tac-Toe</h1>
-    <table>
+    <div id="roomFull" class="alertBox hidden">
+        <p>Sorry, the room is full! Try refreshing periodically.</p>
+    </div>
+    <div id="opponentDisconnected" class="alertBox hidden">
+        <p>Your opponent disconnected!</p>
+    </div>
+    <div id="waitingForOpponent" class="alertBox hidden">
+        <p>Waiting for an opponent to join.</p>
+    </div>
+    <table id="gameboard" class="hidden">
         <tr>
             <td id="1"></td>
             <td id="2"></td>

@@ -2,20 +2,31 @@ var socket = io();
 
 // Room Full Event
 socket.on("full", () => {
-    alert("The room is full");
+    socket.disconnect();
+    document.getElementById("roomFull").classList.remove("hidden");
 });
 
 // First Player In Room
 socket.on("firstJoined", () => {
-    alert("Waiting for opponent to join.");
+    document.getElementById("waitingForOpponent").classList.remove("hidden");
+});
+
+// Second Player In Room
+socket.on("secondJoined", () => {
+    document.getElementById("gameboard").classList.remove("hidden");
 });
 
 // Opponent Joined
 socket.on("opponentJoined", () => {
-    alert("An opponent has joined the game");
+    document.getElementById("opponentDisconnected").classList.add("hidden");
+    document.getElementById("waitingForOpponent").classList.add("hidden");
+    document.getElementById("gameboard").classList.remove("hidden");
 });
 
 // Opponent Left
 socket.on("opponentLeft", () => {
-    alert("Your opponent left the game");
+    document.getElementById("opponentDisconnected").classList.remove("hidden");
+    setTimeout(() => { document.getElementById("opponentDisconnected").classList.add("hidden"); }, 5000);
+    document.getElementById("waitingForOpponent").classList.remove("hidden");
+    document.getElementById("gameboard").classList.add("hidden");
 });
