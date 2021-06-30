@@ -18,6 +18,8 @@ io.on("connection", (socket) => {
     if (peerCount > 2) { socket.emit("full"); }
     // Opponent Joined
     else if (peerCount == 2) { socket.broadcast.emit("opponentJoined"); }
+    // First Player Joined
+    else if (peerCount == 1) { socket.emit("firstJoined"); }
 
     // Disconnected
     socket.on("disconnect", () => {
