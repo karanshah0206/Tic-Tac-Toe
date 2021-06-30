@@ -35,6 +35,17 @@ socket.on("opponentLeft", () => {
 });
 
 // Server Returns Gameboard And Turn Indicator
-socket.on("gameboard", ([gameboard, isMyTurn]) => {
+socket.on("gameboard", ([serverGameboard, isMyTurn]) => {
+    gameboard = serverGameboard;
+    drawGameboard();
     isMyTurn ? document.getElementById("turnIndicator").innerText = "It Is Your Turn" : document.getElementById("turnIndicator").innerText = "It Is Opponent's Turn";
 });
+
+// Render Gameboard
+function drawGameboard() {
+    for (let i = 0; i < 9; i++) {
+        if (gameboard[i] == 1) { document.getElementById((i+1).toString()).innerText = "X"; }
+        else if (gameboard[i] == 2) { document.getElementById((i+1).toString()).innerText = "O"; }
+        else { document.getElementById((i+1).toString()).innerText = ""; }
+    }
+}

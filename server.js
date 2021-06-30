@@ -28,7 +28,7 @@ io.on("connection", (socket) => {
 
     // Player Makes A Move
     socket.on("move", (loc, type) => {
-        gameboard[loc-1] = type;
+        gameboard[loc] = type;
         socket.emit("gameboard", [gameboard, false]);
         socket.broadcast.emit("gameboard", [gameboard, true]);
     });
