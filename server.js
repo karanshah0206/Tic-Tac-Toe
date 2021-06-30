@@ -16,6 +16,8 @@ io.on("connection", (socket) => {
 
     // Room Full
     if (peerCount > 2) { socket.emit("full"); }
+    // Opponent Joined
+    else if (peerCount == 2) { socket.broadcast.emit("opponentJoined"); }
 
     // Disconnected
     socket.on("disconnect", () => {
