@@ -31,7 +31,7 @@ io.on("connection", (socket) => {
         gameboard[loc] = type;
         socket.emit("gameboard", [gameboard, false]);
         socket.broadcast.emit("gameboard", [gameboard, true]);
-        if (checkWinner()) { socket.emit("winner"); socket.broadcast.emit("loser"); }
+        if (checkWinner(type)) { socket.emit("winner"); socket.broadcast.emit("loser"); }
     });
 
     // Disconnected
@@ -41,6 +41,17 @@ io.on("connection", (socket) => {
     });
 });
 
-function checkWinner() {
+function checkWinner(type) {
+    // Checking For Horizontal Matches
+    for (let i = 0; i <= 6; i += 3) { if (gameboard[i] == type && gameboard[i+1] == type && gameboard[i+2] == type) { return true; } }
+
+    // Checking For Vertical Matches
+    for (let i = 0; i < 3; i++) { if (gameboard[i] == type && gameboard[i+3] == type && gameboard[i+6] == type) { return true; } }
+
+    // Checking For Diagonal Matches
+    if (gameboard[0] == type && gameboard[4] == type && gameboard[8] == type) { return true; }
+    if (gameboard[2] == type && gameboard[4] == type && gameboard[6] == type) { return true; }
+
+    // No Matches
     return false;
 }
