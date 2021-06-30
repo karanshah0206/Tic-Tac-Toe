@@ -10,9 +10,14 @@ app.use(express.static("ui"));
 server.listen(port, () => { });
 
 // Connection Management
+var peerCount = 0;
 io.on("connection", (socket) => {
-    // Connected
-    socket.on("disconnect", () => {
-        // Disconnected
-    });
+    peerCount++;
+
+    if (peerCount > 2) {
+        socket.emit("full");
+    }
+
+    // Disconnected
+    socket.on("disconnect", () => { peerCount--; });
 });
