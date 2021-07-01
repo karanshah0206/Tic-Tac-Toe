@@ -1,5 +1,5 @@
 // Setting Up Server
-const port = 80;
+const port = process.env.PORT || '80';
 const express = require("express");
 const app = express();
 const http = require("http");
