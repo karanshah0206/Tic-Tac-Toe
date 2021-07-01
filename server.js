@@ -32,6 +32,7 @@ io.on("connection", (socket) => {
         socket.emit("gameboard", [gameboard, false]);
         socket.broadcast.emit("gameboard", [gameboard, true]);
         if (checkWinner(type)) { socket.emit("winner"); socket.broadcast.emit("loser"); }
+        else if (checkTie()) { socket.emit("tie"); socket.broadcast.emit("tie"); console.log("tie"); }
     });
 
     // Disconnected
@@ -54,4 +55,9 @@ function checkWinner(type) {
 
     // No Matches
     return false;
+}
+
+function checkTie() {
+    for (let i = 0; i < 9; i++) { if (gameboard[i] == 0) { return false; } }
+    return true;
 }
