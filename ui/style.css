@@ -13,7 +13,8 @@ p { text-align: center; }
 #opponentDisconnected { background-color: #ff0000; }
 #roomFull { background-color: #ff0000; }
 #waitingForOpponent { background-color: #ff8800; }
-#winner { background-color: rgb(36, 167, 36); }
+#winner { background-color: #24a724; }
+#tie { background-color: #ff8800; }
 #loser { background-color: #ff0000; }
 
 /* Alerter */
