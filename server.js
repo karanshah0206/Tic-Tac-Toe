@@ -29,10 +29,22 @@ io.on("connection", (socket) => {
     // Player Makes A Move
     socket.on("move", ([loc, type]) => {
         gameboard[loc] = type;
-        socket.emit("gameboard", [gameboard, false]);
-        socket.broadcast.emit("gameboard", [gameboard, true]);
-        if (checkWinner(type)) { socket.emit("winner"); socket.broadcast.emit("loser"); }
-        else if (checkTie()) { socket.emit("tie"); socket.broadcast.emit("tie"); console.log("tie"); }
+        if (checkWinner(type)) {
+            socket.emit("winner");
+            socket.broadcast.emit("loser");
+            socket.emit("gameboard", [gameboard, false]);
+            socket.broadcast.emit("gameboard", [gameboard, false]);
+        }
+        else if (checkTie()) {
+            socket.emit("tie");
+            socket.broadcast.emit("tie");
+            socket.emit("gameboard", [gameboard, false]);
+            socket.broadcast.emit("gameboard", [gameboard, false]);
+        }
+        else {
+            socket.emit("gameboard", [gameboard, false]);
+            socket.broadcast.emit("gameboard", [gameboard, true]);
+        }
     });
 
     // Disconnected

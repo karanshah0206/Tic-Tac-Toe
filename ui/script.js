@@ -44,22 +44,13 @@ socket.on("gameboard", ([serverGameboard, isMyTurn]) => {
 });
 
 // Winner
-socket.on("winner", () => {
-    document.getElementById("winner").classList.remove("hidden");
-    document.getElementById("gameboard").classList.add("hidden");
-});
+socket.on("winner", () => { document.getElementById("winner").classList.remove("hidden"); });
 
 // Loser
-socket.on("loser", () => {
-    document.getElementById("loser").classList.remove("hidden");
-    document.getElementById("gameboard").classList.add("hidden");
-});
+socket.on("loser", () => { document.getElementById("loser").classList.remove("hidden"); });
 
 // Tie
-socket.on("tie", () => {
-    document.getElementById("tie").classList.remove("hidden");
-    document.getElementById("gameboard").classList.add("hidden");
-});
+socket.on("tie", () => { document.getElementById("tie").classList.remove("hidden"); });
 
 // Event Listeners For Gameboard
 for (let i = 0; i < 9; i++) { document.getElementById((i+1).toString()).addEventListener("click", () => { makeMove(i); }); }
