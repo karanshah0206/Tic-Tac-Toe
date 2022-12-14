@@ -4,7 +4,7 @@
   "description": "Real-Time 2 Player Tic-Tac-Toe",
   "main": "server.js",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "socket.io": "^4.1.2"
   },
   "devDependencies": {},
